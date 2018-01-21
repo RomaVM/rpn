@@ -1,4 +1,4 @@
-package data_acces;
+package data_access;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -19,12 +19,12 @@ public class DataReader {
         return instance;
     }
 
-    public List<String> readData() {
-        List<String> listOfData = new ArrayList<>();
+    public List<String[]> readData() {
+        List<String[]> listOfData = new ArrayList<>();
         String line;
         try(BufferedReader br = new BufferedReader(new FileReader(INPUT))) {
             while ((line = br.readLine()) != null) {
-                listOfData.add(line);
+                listOfData.add(line.split(""));
             }
             br.close();
         } catch (IOException ioe) {
